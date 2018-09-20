@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -58,6 +59,13 @@ public class LonelyTwitterActivity extends Activity {
 
 	private String[] loadFromFile() {
 		ArrayList<String> tweets = new ArrayList<String>();
+		// / you want to save the object not just the text
+		//which is what this is doing
+		ArrayList<Tweet> tweetlist = new ArrayList<Tweet>();
+		NormalTweet myTweet = new NormalTweet();
+		tweetlist.add(myTweet);
+		//instance of normal tweet added to the array
+
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
@@ -79,6 +87,9 @@ public class LonelyTwitterActivity extends Activity {
 	
 	private void saveInFile(String text, Date date) {
 		try {
+			NormalTweet myTweet = new NormalTweet("");
+			myTweet.setMessage("Yikes");
+
 			FileOutputStream fos = openFileOutput(FILENAME,
 					Context.MODE_APPEND);
 			fos.write(new String(date.toString() + " | " + text)
@@ -90,6 +101,9 @@ public class LonelyTwitterActivity extends Activity {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (TweetTooLongException e){
+
 		}
+
 	}
 }
