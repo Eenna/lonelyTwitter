@@ -24,7 +24,7 @@ public class LonelyTwitterActivity extends Activity {
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -61,9 +61,9 @@ public class LonelyTwitterActivity extends Activity {
 		ArrayList<String> tweets = new ArrayList<String>();
 		// / you want to save the object not just the text
 		//which is what this is doing
-		ArrayList<Tweet> tweetlist = new ArrayList<Tweet>();
-		NormalTweet myTweet = new NormalTweet();
-		tweetlist.add(myTweet);
+		//ArrayList<Tweet> tweetlist = new ArrayList<Tweet>();
+		//NormalTweet myTweet = new NormalTweet();
+		//tweetlist.add(myTweet);
 		//instance of normal tweet added to the array
 
 		try {
@@ -84,7 +84,7 @@ public class LonelyTwitterActivity extends Activity {
 		}
 		return tweets.toArray(new String[tweets.size()]);
 	}
-	
+
 	private void saveInFile(String text, Date date) {
 		try {
 			NormalTweet myTweet = new NormalTweet("");
@@ -102,7 +102,7 @@ public class LonelyTwitterActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (TweetTooLongException e){
-
+			e.printStackTrace();
 		}
 
 	}

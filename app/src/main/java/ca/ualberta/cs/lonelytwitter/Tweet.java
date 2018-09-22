@@ -1,5 +1,6 @@
 package ca.ualberta.cs.lonelytwitter; //groupings of related classes
 
+import java.util.ArrayList;
 import java.util.Date; //Date is an object - everything is an object
 
 public abstract class Tweet implements Tweetable {// AFTER THE CLASS WAS WRITTEN WE MADE IT ABSTRACT
@@ -14,6 +15,7 @@ public abstract class Tweet implements Tweetable {// AFTER THE CLASS WAS WRITTEN
 
     private String message;
     private static final Integer MAX_CHARS = 140;
+    ArrayList<Mood> moodList = new ArrayList<Mood>();
     //instead of having a hardcoded constant
 
     //ALL THESE VARIABLES are defined within their instance
@@ -65,6 +67,11 @@ public abstract class Tweet implements Tweetable {// AFTER THE CLASS WAS WRITTEN
             // make this a subclass of the Exception Superclass
             //when you're making the new class
         }
+    }
+
+    public ArrayList listOfMoods(Mood mood){
+        this.moodList.add(mood);
+        return moodList;
     }
 
     public abstract Boolean isImportant();
