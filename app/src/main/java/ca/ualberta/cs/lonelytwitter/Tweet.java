@@ -15,7 +15,7 @@ public abstract class Tweet implements Tweetable {// AFTER THE CLASS WAS WRITTEN
 
     private String message;
     private static final Integer MAX_CHARS = 140;
-    ArrayList<Mood> moodList = new ArrayList<Mood>();
+    //ArrayList<Mood> moodList = new ArrayList<Mood>();
     //instead of having a hardcoded constant
 
     //ALL THESE VARIABLES are defined within their instance
@@ -68,13 +68,17 @@ public abstract class Tweet implements Tweetable {// AFTER THE CLASS WAS WRITTEN
             //when you're making the new class
         }
     }
-
+/**
     public ArrayList listOfMoods(Mood mood){
         this.moodList.add(mood);
         return moodList;
-    }
+    }*/
 
     public abstract Boolean isImportant();
+
+    public String toString(){
+        return this.getMessage();
+    }
 
     //abstract classes give coherence and structure, but aren't implemented themselves
 }

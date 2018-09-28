@@ -10,7 +10,7 @@ public abstract class Mood {
     }
 
     public Mood(Date date) {
-        this.date = new Date();
+        this.date = date;
     }
 
     public Date getDate() {
